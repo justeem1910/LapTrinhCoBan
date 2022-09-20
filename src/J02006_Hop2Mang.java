@@ -21,6 +21,6 @@ public class J02006_Hop2Mang {
         for (int i : a){
             System.out.print(i+ " ");
         }
-        //qqqq
+
     }
 }
