@@ -1,6 +1,3 @@
-import com.sun.source.tree.Tree;
-
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.TreeSet;
 
@@ -18,9 +15,8 @@ public class J02006_Hop2Mang {
             b.add(sc.nextInt());
         }
         a.addAll(b);
-        for (int i : a){
+        for (Integer i : a){
             System.out.print(i+ " ");
         }
-        System.out.println();
     }
 }
