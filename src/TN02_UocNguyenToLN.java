@@ -1,32 +1,33 @@
 import java.util.Scanner;
 
 public class TN02_UocNguyenToLN {
+    private static int ktnt(long n){
+        if (n == 2)  return 1;
+        if (n<2 || n%2 == 0) return  0;
+        for (long i = 3; i <= Math.sqrt(n) ; i++){
+            if (n%i == 0) return  0;
+        }
+        return  1;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
         while (t-- > 0){
             long n = sc.nextLong();
-            Boolean[] check = new Boolean[(int) n];
-            for (int i = 2; i <= Math.sqrt(n); i++){
-                check[i] = true;
-            }
-            int sqrt = (int)Math.sqrt(n);
-            for (int i = 2; i <= sqrt; i++){
-                if( check[i] == true){
-                    for (int j = i*2; j<= sqrt; j+=i){
-                        check[j] = false;
+            long x = 0;
+
+            for (long i = 1; i <= Math.sqrt(n); i++) {
+                if (n % i == 0) {
+                    if (ktnt(n / i) == 1) {
+                        x = n/i;
                     }
+                    else if (ktnt(i) == 1)
+                        x = i;
                 }
             }
-            int res = 0;
-            for (int i = sqrt; i >=2; i--){
-                if (check[i] == true){
-                    if (n % i == 0){
-                        res = i;
-                    }
-                }
+            if (x > 0){
+                System.out.println(x);
             }
-            System.out.println(res);
         }
     }
 }
